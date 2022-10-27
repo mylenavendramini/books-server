@@ -2,7 +2,7 @@
 
 Back-end code for the This Author project. This web application connects to a React front-end:
 
-[View front-end website](https://javascript-quiz-mv.netlify.app/)
+[View front-end website](https://this-author.netlify.app/)
 
 ## Prerequisites
 
