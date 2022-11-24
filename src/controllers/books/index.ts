@@ -96,6 +96,27 @@ const updateBackBook = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
+const editBook = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const {
+      params: { id },
+      body,
+    } = req;
+    const editedBook: Ibook | null = await Book.findByIdAndUpdate(
+      { _id: id },
+      body
+    ).setOptions({ new: true, overwrite: true });
+    const allBooks: Ibook[] = await Book.find().sort({ _id: -1 });
+    res.status(200).json({
+      message: "Book edited",
+      book: editedBook,
+      books: allBooks,
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 const deleteBookFromPage = async (
   req: Request,
   res: Response
@@ -136,4 +157,11 @@ const deleteBookFromPage = async (
 //   }
 // };
 
-export { getBooks, createBook, updateBook, deleteBookFromPage, updateBackBook };
+export {
+  getBooks,
+  createBook,
+  updateBook,
+  deleteBookFromPage,
+  updateBackBook,
+  editBook,
+};
