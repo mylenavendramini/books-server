@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateBackBook = exports.deleteBookFromPage = exports.updateBook = exports.createBook = exports.getBooks = void 0;
+exports.editBook = exports.updateBackBook = exports.deleteBookFromPage = exports.updateBook = exports.createBook = exports.getBooks = void 0;
 const book_1 = __importDefault(require("../../models/book"));
 const getBooks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -86,6 +86,22 @@ const updateBackBook = (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
 });
 exports.updateBackBook = updateBackBook;
+const editBook = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { params: { id }, body, } = req;
+        const editedBook = yield book_1.default.findByIdAndUpdate({ _id: id }, body).setOptions({ new: true, overwrite: true });
+        const allBooks = yield book_1.default.find().sort({ _id: -1 });
+        res.status(200).json({
+            message: "Book edited",
+            book: editedBook,
+            books: allBooks,
+        });
+    }
+    catch (error) {
+        throw error;
+    }
+});
+exports.editBook = editBook;
 const deleteBookFromPage = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { params: { id }, body, } = req;
