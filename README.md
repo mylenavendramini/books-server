@@ -1,4 +1,4 @@
-# books-server
+# This Author (backend)
 
 Back-end code for the This Author project. This web application connects to a React front-end:
 
