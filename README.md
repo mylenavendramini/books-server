@@ -4,8 +4,6 @@ Back-end code for the This Author project. This web application connects to a Re
 
 [View front-end website](https://javascript-quiz-mv.netlify.app/)
 
-This is my first fullstack web application and I'm using TypeScript, Node.js, Express and MongoDB.
-
 ## Prerequisites
 
 This project requires NPM. Check if you have it:
