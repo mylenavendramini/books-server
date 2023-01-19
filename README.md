@@ -31,7 +31,7 @@ $ npm install
 
 express, mongodb, mongoose, nodemon
 
-### You have to add
+## You have to add
 
 Create a nodemon.json file and add {
 "env": {
@@ -41,7 +41,7 @@ Create a nodemon.json file and add {
 }
 }
 
-### Built With
+## Built With
 
 TYPESCRIPT | NODE.JS | EXPRESS | MONGODB
 
